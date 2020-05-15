@@ -1,0 +1,63 @@
+@mixin visible {
+  transform: translateX(0);
+  opacity: 1;
+  position: relative;
+}
+
+@mixin not-visible {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+.autocomplete {
+  &__button {
+    width: 8rem;
+    height: 8rem;
+    box-shadow: 0 0.5rem darken($button-color, 15%);
+    outline: none;
+    border-radius: 0 50% 50% 0;
+    border: 0;
+    position: relative;
+    background: $button-color;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.65;
+    }
+
+    &:active:not(:disabled) {
+      top: 0.3rem;
+      box-shadow: 0 0.2rem darken($button-color, 0.5);
+    }
+
+    .button-icon {
+      @include visible;
+      fill: $white;
+      height: 100%;
+      transition: transform 0.3s ease-in-out, opacity 0.15s ease-in-out;
+
+      &--loading {
+        @include not-visible;
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &.loading {
+    .autocomplete__button {
+      .button-icon {
+        @include not-visible;
+        transform: translateX(-100%);
+
+        &--loading {
+          @include visible;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import "fonts";
+@import "reset";
+
+$button-color: #505050;
+$white: #fff;
+
+body {
+  background: lightcyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  height: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 4rem 0 0 0;
+}
+
+.button-api {
+  outline: none;
+  border: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: $button-color;
+  color: $white;
+  cursor: pointer;
+  padding: 2rem;
+  font-size: 1.6rem;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .button-api {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,62 @@
+$primary-color: lightcyan;
+$secondary-color: #4b5cff;
+$black: #000;
+$white: #fff;
+$button-color: #505050;
+
+@import "button";
+@import "input";
+
+.autocomplete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1.6rem;
+
+  &__form {
+    display: flex;
+    position: relative;
+  }
+
+  &__list {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 2rem 0 0 0;
+    padding: 0 2rem;
+
+    .item {
+      padding: 1rem 0;
+      border-bottom: 0.1rem solid $black;
+      cursor: pointer;
+
+      &:hover {
+        background: $secondary-color;
+      }
+
+      &--active {
+        background: $secondary-color;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .autocomplete {
+    font-size: 1.4rem;
+    padding: 1rem;
+
+    &__button {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .button-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

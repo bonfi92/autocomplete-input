@@ -1,0 +1,18 @@
+.autocomplete {
+  &__input {
+    border: 0;
+    outline: none;
+    box-shadow: 0 0.5rem darken($white, 15%);
+    border-radius: 2rem 0 0 2rem;
+    position: relative;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    &:disabled {
+      opacity: 0.65;
+    }
+  }
+}

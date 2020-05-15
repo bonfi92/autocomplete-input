@@ -1,0 +1,136 @@
+{
+  "colors": [
+    {
+      "name": "AliceBlue",
+      "id": "#F0F8FF"
+    },
+    {
+      "name": "LightGreen",
+      "id": "#90EE90"
+    },
+    {
+      "name": "Brown",
+      "id": "#A52A2A"
+    },
+    {
+      "name": "BlueViolet",
+      "id": "#8A2BE2"
+    },
+    {
+      "name": "DeepPink",
+      "id": "#FF1493"
+    },
+    {
+      "name": "CadetBlue",
+      "id": "#5F9EA0"
+    },
+    {
+      "name": "DarkRed",
+      "id": "#8B0000"
+    },
+    {
+      "name": "DarkGreen",
+      "id": "#006400"
+    },
+    {
+      "name": "Khaki",
+      "id": "#F0E68C"
+    },
+    {
+      "name": "LemonChiffon",
+      "id": "#FFFACD"
+    },
+    {
+      "name": "LightSlateGrey",
+      "id": "#778899"
+    },
+    {
+      "name": "Navy",
+      "id": "#000080"
+    },
+    {
+      "name": "Olive",
+      "id": "#808000"
+    },
+    {
+      "name": "PaleGreen",
+      "id": "#98FB98"
+    },
+    {
+      "name": "Salmon",
+      "id": "#FA8072"
+    },
+    {
+      "name": "FireBrick",
+      "id": "#B22222"
+    },
+    {
+      "name": "Gold",
+      "id": "#FFD700"
+    },
+    {
+      "name": "Red",
+      "id": "#FF0000"
+    },
+    {
+      "name": "Green",
+      "id": "#008000"
+    },
+    {
+      "name": "Aqua",
+      "id": "#00FFFF"
+    },
+    {
+      "name": "Aquamarine",
+      "id": "#7FFFD4"
+    },
+    {
+      "name": "RosyBrown",
+      "id": "#BC8F8F"
+    },
+    {
+      "name": "RoyalBlue",
+      "id": "#4169E1"
+    },
+    {
+      "name": "Tan",
+      "id": "#D2B48C"
+    },
+    {
+      "name": "Tomato",
+      "id": "#FF6347"
+    },
+    {
+      "name": "SpringGreen",
+      "id": "#00FF7F"
+    },
+    {
+      "name": "Teal",
+      "id": "#008080"
+    },
+    {
+      "name": "Purple",
+      "id": "#800080"
+    },
+    {
+      "name": "PowderBlue",
+      "id": "#B0E0E6"
+    },
+    {
+      "name": "OrangeRed",
+      "id": "#FF4500"
+    },
+    {
+      "name": "Cyan",
+      "id": "#00FFFF"
+    },
+    {
+      "name": "Crimson",
+      "id": "#DC143C"
+    },
+    {
+      "name": "Violet",
+      "id": "#EE82EE"
+    }
+  ]
+}
