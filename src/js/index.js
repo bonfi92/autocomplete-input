@@ -51,6 +51,7 @@ function onLoad() {
 // Only triggers if the request couldn't be made at all
 function onError() {
 	alert('Network Error');
+	loading(false);
 }
 
 function loading(isLoading) {
