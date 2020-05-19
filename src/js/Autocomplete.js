@@ -29,7 +29,7 @@
 			inputParent.appendChild(list);
 
 			// Create regular expression to check values in array
-			const regExp = new RegExp('^(' + this.value + ')(.*)$', 'i');
+			const regExp = new RegExp('(' + this.value + ')', 'gi');
 
 			for (let i = 0; i < arr.length; i++) {
 				const regExpRes = arr[i].match(regExp);
@@ -37,7 +37,7 @@
 					// regExpRes[0] --> full match (complete string)
 					// regExpRes[1] --> capturing group 1 (string equal to value in input)
 					// regExpRes[2] --> capturing group 2 (rest of the string)
-					const string = '<strong>' + regExpRes[1] + '</strong>' + regExpRes[2];
+					const string = arr[i].replace(regExp, '<strong>$1</strong>');
 					const item = document.createElement('li');
 					item.classList.add(itemClass);
 					item.innerHTML = string;
@@ -47,6 +47,7 @@
 				}
 			}
 		}
+
 		this.handleKeyDownEvent = function (e) {
 			const itemsList = getItemsList();
 
@@ -96,6 +97,38 @@
 			}
 
 			itemsList[itemFocused].classList.add(itemActiveClass);
+
+			// Scroll the list if necessary
+			const list = inputParent.querySelector('.' + listClass);
+			scrollList(list, itemsList[itemFocused]);
+		}
+
+		function scrollList(list, itemFocused) {
+			const listClientRect = list.getBoundingClientRect();
+			const itemClientRect = itemFocused.getBoundingClientRect();
+			const listTop = listClientRect.top;
+			const listBottom = listClientRect.bottom;
+			const itemTop = itemClientRect.top;
+			const itemBottom = itemClientRect.bottom;
+			const bottomDifference = itemBottom - listBottom;
+			const topDifference = itemTop - listTop;
+
+			if (bottomDifference > 0) {
+				// the list needs to be scrolled
+				scrollNow(list.scrollTop + bottomDifference);
+			}
+
+			if (topDifference < 0) {
+				// the list needs to be scrolled
+				scrollNow(list.scrollTop + topDifference);
+			}
+
+			function scrollNow(top) {
+				list.scroll({
+					top: top,
+					behavior: 'smooth'
+				});
+			}
 		}
 
 		function removeActiveItems(itemsList) {
