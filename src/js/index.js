@@ -7,17 +7,6 @@ const getColorApi = 'http://localhost:3001/colors';
 let colors = [];
 let autocompleteRef;
 
-// 1 - Call the API to get data of input autocomplete
-// Create a new XMLHttpRequest object
-
-const xhr = new XMLHttpRequest();
-
-// Call API
-fetchColors();
-
-// Set event handlers
-xhr.onload = onLoad;
-xhr.onerror = onError;
 
 // 2 - Listen for form submit event to change background color
 autocompleteForm.addEventListener('submit', handleFormSubmit);
@@ -37,23 +26,6 @@ function handleFormSubmit(e) {
 	}
 }
 
-// On response received
-function onLoad() {
-	colors = JSON.parse(this.response);
-	const mappedColors = colors.map(function (obj) {
-		return obj.name;
-	});
-	// Create an instance of autocomplete
-	autocompleteRef = new Autocomplete(autocompleteInput, mappedColors);
-	loading(false);
-}
-
-// Only triggers if the request couldn't be made at all
-function onError() {
-	alert('Network Error');
-	loading(false);
-}
-
 function loading(isLoading) {
 	if (isLoading) {
 		autocompleteContainer.classList.add('loading');
@@ -65,17 +37,31 @@ function loading(isLoading) {
 }
 
 function fetchColors() {
-	// Set loading to true
-	loading(true);
-
 	// If there is an autocomplete already instantiated, destroy it
 	if (autocompleteRef) {
 		autocompleteRef.destroy();
 	}
 
-	// Configure the call
-	xhr.open('GET', getColorApi);
+	loading(true);
 
-	// Send the request
-	xhr.send();
+	fetch(getColorApi)
+		.then(res => {
+			if (res.ok) {
+				return res.json();
+			}
+		})
+		.then(res => {
+			colors = res;
+			const mappedColors = res.map(obj => obj.name);
+			// Create an instance of autocomplete
+			autocompleteRef = new Autocomplete(autocompleteInput, mappedColors);
+		})
+		.catch(() => {
+			alert('Network Error');
+		})
+		.finally(() => {
+			loading(false);
+		})
 }
+
+fetchColors();
